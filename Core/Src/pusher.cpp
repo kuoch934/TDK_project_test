@@ -5,11 +5,15 @@
  *      Author: paul3
  */
 #include "pusher.h"
+#include "stm32h7xx_hal.h"
 
 PUSHER pusher_A;
 PUSHER pusher_B;
 //PUSHER pusher_C;
 //PUSHER pusher_D;
+extern int delay_start_reset;
+extern int delay_reset;
+extern int pusher_reset_state;
 
 void script_pusher(double hight_a,double hight_b){
 	pusher_A.state = hight_a;
@@ -20,6 +24,26 @@ void PUSHER::distence(){
 
 	pusher_A.d = (pusher_A.state - pusher_A.p_state)*10;
 	pusher_B.d = (pusher_B.state - pusher_B.p_state)*10;
+}
+void pusher_reset(){
+//	while(pusher_reset_state == 0){
+	if(pusher_reset_state == 0){
+		script_pusher(-14,15);
+		pusher_reset_state =1;
+//		if(delay_start_reset ==1 && delay_reset == 400){
+//			script_pusher(-14,13);
+//			delay_start_reset =2;
+//		}
+//		if(delay_start_reset == 2 && delay_reset == 600){
+//			pusher_A.state = 0;
+//			pusher_A.p_state = 0;
+//			pusher_B.state = 12 ;
+//			pusher_B.p_state = 12;
+//			delay_start_reset = 0;
+//			delay_reset = 0;
+//			pusher_reset_state =1;
+//		}
+	}
 }
 void PUSHER::pusher_move(){
 	/*pusher down*/

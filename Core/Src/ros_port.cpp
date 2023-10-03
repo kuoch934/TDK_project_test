@@ -10,11 +10,9 @@
 #include "ros.h"
 #include "geometry_msgs/Twist.h"
 #include "std_msgs/Int8.h"
+#include "script.h"
 
 #include "mainpp.h"
-
-int run_inter0 = 0;
-
 
 
 geometry_msgs::Twist speed;
@@ -35,15 +33,20 @@ ros::Publisher pub_vel("/realspeed", &speed);
 ros::Subscriber<std_msgs::Int8> sub_ori("/cmd_ori", ori_callback);
 //ros::Subscriber<std_msgs::Int8> sub_laji("cmd_laji", laji_callback);
 //ros::Publisher pub_laji("laji_ok", &speed);
-void interPub(void){
+void pub(void){
 	speed.linear.x = rVx;
 	speed.linear.y = rVy;
 	speed.angular.z = rW;
-	run_inter0 ++;
-
- if(run_inter0 > 1)
+	if(everRun2 == 1){//already completed flipping board
+		speed.linear.z = 2;
+	}
+	else if(everRun == 1){//already completed crossing obstacle
+		speed.linear.z = 1;
+	}
+	else{
+		speed.linear.z = 0;
+	}
 	pub_vel.publish(&speed);
-
 }
 void ros_setup(void)
 {
@@ -58,7 +61,6 @@ void ros_setup(void)
 void ros_loop(void)
 {
     nh.spinOnce();
-//    interPub();
 }
 /* UART Communication */
 void Error_Handler(void)
@@ -75,13 +77,13 @@ void Error_Handler(void)
 static void MX_USART1_UART_Init(void)
 {
 
-  /* USER CODE BEGIN USART1_Init 0 */
+  /* USER CODE BEGIN USART3_Init 0 */
 
-  /* USER CODE END USART1_Init 0 */
+  /* USER CODE END USART3_Init 0 */
 
-  /* USER CODE BEGIN USART1_Init 1 */
+  /* USER CODE BEGIN USART3_Init 1 */
 
-  /* USER CODE END USART1_Init 1 */
+  /* USER CODE END USART3_Init 1 */
   huart1.Instance = USART1;
   huart1.Init.BaudRate = 57600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
@@ -109,9 +111,9 @@ static void MX_USART1_UART_Init(void)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN USART1_Init 2 */
+  /* USER CODE BEGIN USART3_Init 2 */
 
-  /* USER CODE END USART1_Init 2 */
+  /* USER CODE END USART3_Init 2 */
 
 }
 

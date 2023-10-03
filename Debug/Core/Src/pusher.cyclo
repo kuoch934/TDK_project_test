@@ -1,6 +1,7 @@
-../Core/Inc/pusher.h:36:7:PUSHER::PUSHER()	1
-../Core/Src/pusher.cpp:14:6:void script_pusher(double, double)	1
-../Core/Src/pusher.cpp:19:6:void PUSHER::distence()	1
-../Core/Src/pusher.cpp:24:6:void PUSHER::pusher_move()	1
-../Core/Src/pusher.cpp:106:1:void __static_initialization_and_destruction_0(int, int)	3
-../Core/Src/pusher.cpp:106:1:cpp)	1
+../Core/Inc/pusher.h:37:7:PUSHER::PUSHER()	1
+../Core/Src/pusher.cpp:18:6:void script_pusher(double, double)	1
+../Core/Src/pusher.cpp:23:6:void PUSHER::distence()	1
+../Core/Src/pusher.cpp:28:6:void pusher_reset()	2
+../Core/Src/pusher.cpp:48:6:void PUSHER::pusher_move()	1
+../Core/Src/pusher.cpp:130:1:void __static_initialization_and_destruction_0(int, int)	3
+../Core/Src/pusher.cpp:130:1:cpp)	1

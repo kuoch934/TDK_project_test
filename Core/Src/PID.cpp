@@ -19,12 +19,12 @@ void pidCtrl(int i){
 	Kpid[i].ui += Kpid[i].Ki * Kpid[i].last_error / frequency;
 //	Kpid[i].ui = 0;
 	Kpid[i].ud = Kpid[i].Kd * (Kpid[i].error - Kpid[i].last_error) * frequency;
-	if( fabs(Kpid[i].ui) > max_ui )
+	if( fabs(Kpid[i].ui) >= max_ui )
 		Kpid[i].ui = (Kpid[i].ui >= 0)? max_ui: -1*max_ui;
 	Kpid[i].u = Kpid[i].up + Kpid[i].ui + Kpid[i].ud;
 
 	Kpid[i].last_error = Kpid[i].error;
 
 	Kpid[i].pulse = fabs(Kpid[i].u) * PWM_ARR;
-	if(Kpid[i].pulse > PWM_ARR)	Kpid[i].pulse = PWM_ARR;
+	if(Kpid[i].pulse >= PWM_ARR)	Kpid[i].pulse = PWM_ARR;
 }

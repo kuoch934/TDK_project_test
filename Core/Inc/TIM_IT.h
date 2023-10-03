@@ -73,4 +73,5 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 //double Vx = 0, Vy = 0, W, rVx, rVy, rW;
 int delay_start = 0,delay = 0;
 int delay_start_2= 0,delay_2 = 0;
+int delay_start_reset = 0,delay_reset = 0;
 #endif /* INC_TIM_IT_H_ */

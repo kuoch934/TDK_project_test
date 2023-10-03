@@ -31,7 +31,7 @@ Core/Src/script.o: ../Core/Src/script.cpp ../Core/Inc/script.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Core/Inc/servo.h ../Core/Inc/main.h
+ ../Core/Inc/servo.h ../Core/Inc/main.h ../Core/Inc/mainpp.h
 ../Core/Inc/script.h:
 ../Core/Inc/pusher.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
@@ -68,3 +68,4 @@ Core/Src/script.o: ../Core/Src/script.cpp ../Core/Inc/script.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../Core/Inc/servo.h:
 ../Core/Inc/main.h:
+../Core/Inc/mainpp.h:

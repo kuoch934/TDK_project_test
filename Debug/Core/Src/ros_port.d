@@ -7,7 +7,7 @@ Core/Src/ros_port.o: ../Core/Src/ros_port.cpp ../Core/Inc/ros_port.h \
  ../Core/Inc/ros/node_handle.h ../Core/Inc/ros/subscriber.h \
  ../Core/Inc/ros/service_server.h ../Core/Inc/ros/service_client.h \
  ../Core/Inc/STM32Hardware.h \
- ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32H7xx_hal.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -39,11 +39,10 @@ Core/Src/ros_port.o: ../Core/Src/ros_port.cpp ../Core/Inc/ros_port.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32H7xx_hal_uart.h \
  ../Core/Inc/geometry_msgs/Twist.h ../Core/Inc/geometry_msgs/Vector3.h \
  ../Core/Inc/std_msgs/Int8.h ../Core/Inc/STM32Hardware.h \
  ../Core/Inc/ros.h ../Core/Inc/geometry_msgs/Twist.h \
- ../Core/Inc/std_msgs/Int8.h ../Core/Inc/mainpp.h
+ ../Core/Inc/std_msgs/Int8.h ../Core/Inc/script.h ../Core/Inc/mainpp.h
 ../Core/Inc/ros_port.h:
 ../Core/Inc/ros.h:
 ../Core/Inc/ros/node_handle.h:
@@ -60,7 +59,7 @@ Core/Src/ros_port.o: ../Core/Src/ros_port.cpp ../Core/Inc/ros_port.h \
 ../Core/Inc/ros/service_server.h:
 ../Core/Inc/ros/service_client.h:
 ../Core/Inc/STM32Hardware.h:
-../Drivers/STM32H7xx_HAL_Driver/Inc/stm32H7xx_hal.h:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:
@@ -92,7 +91,6 @@ Core/Src/ros_port.o: ../Core/Src/ros_port.cpp ../Core/Inc/ros_port.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-../Drivers/STM32H7xx_HAL_Driver/Inc/stm32H7xx_hal_uart.h:
 ../Core/Inc/geometry_msgs/Twist.h:
 ../Core/Inc/geometry_msgs/Vector3.h:
 ../Core/Inc/std_msgs/Int8.h:
@@ -100,4 +98,5 @@ Core/Src/ros_port.o: ../Core/Src/ros_port.cpp ../Core/Inc/ros_port.h \
 ../Core/Inc/ros.h:
 ../Core/Inc/geometry_msgs/Twist.h:
 ../Core/Inc/std_msgs/Int8.h:
+../Core/Inc/script.h:
 ../Core/Inc/mainpp.h:

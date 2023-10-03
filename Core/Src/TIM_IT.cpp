@@ -11,8 +11,12 @@
 #include "PID.h"
 #include "pusher.h"
 #include "script.h"
+#include "ros_port.h"
+#include "mainpp.h"
 
-double coeffab = 0.5 * (width + length);
+#define PI 3.14159265751
+
+double coeffab = 0.5 * (width + car_len);
 //extern int flag;
 //extern int flaged;
 //extern int scriptrun;
@@ -24,6 +28,8 @@ extern PUSHER pusher_B;
 extern PUSHER pusher_C;
 extern PUSHER pusher_D;
 double corr_vy = (double)100/94;
+int t = 0;
+int delay_start_resetFIRST = 1;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance == TIM1){
@@ -44,9 +50,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 
 
+
+
 		for( int i = 0; i < 4; i ++){
 			pidCtrl(i);
 		}
+
+		rVx= (Kpid[0].insVel+Kpid[1].insVel+Kpid[2].insVel+Kpid[3].insVel)/4;
+		rVy= (Kpid[0].insVel-Kpid[1].insVel+Kpid[2].insVel-Kpid[3].insVel)/4;
+		rW= (-Kpid[0].insVel+Kpid[1].insVel+Kpid[2].insVel-Kpid[3].insVel)/(4*(car_len-width))/(2*PI);
 
 		__HAL_TIM_SET_COMPARE(FR_PWM_TIMMER, FR_PWM_CHANNEL, Kpid[0].pulse);
 		__HAL_TIM_SET_COMPARE(FL_PWM_TIMMER, FL_PWM_CHANNEL, Kpid[1].pulse);
@@ -60,18 +72,24 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		HAL_GPIO_WritePin(BL_INB_PORT, BL_INB_PIN, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(BR_INA_PORT, BR_INA_PIN, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(BR_INB_PORT, BR_INB_PIN, GPIO_PIN_RESET);
-		if (Kpid[0].u > 0)HAL_GPIO_WritePin(FR_INA_PORT, FR_INA_PIN, GPIO_PIN_SET);
+		if (Kpid[0].u >= 0)HAL_GPIO_WritePin(FR_INA_PORT, FR_INA_PIN, GPIO_PIN_SET);
 		else if (Kpid[0].u < 0)HAL_GPIO_WritePin(FR_INB_PORT, FR_INB_PIN, GPIO_PIN_SET);
-		if (Kpid[1].u > 0)HAL_GPIO_WritePin(FL_INA_PORT, FL_INA_PIN, GPIO_PIN_SET);
+		if (Kpid[1].u >= 0)HAL_GPIO_WritePin(FL_INA_PORT, FL_INA_PIN, GPIO_PIN_SET);
 		else if (Kpid[1].u < 0)HAL_GPIO_WritePin(FL_INB_PORT, FL_INB_PIN, GPIO_PIN_SET);
-		if (Kpid[2].u > 0)HAL_GPIO_WritePin(BL_INA_PORT, BL_INA_PIN, GPIO_PIN_SET);
+		if (Kpid[2].u >= 0)HAL_GPIO_WritePin(BL_INA_PORT, BL_INA_PIN, GPIO_PIN_SET);
 		else if (Kpid[2].u < 0)HAL_GPIO_WritePin(BL_INB_PORT, BL_INB_PIN, GPIO_PIN_SET);
-		if (Kpid[3].u > 0)HAL_GPIO_WritePin(BR_INA_PORT, BR_INA_PIN, GPIO_PIN_SET);
+		if (Kpid[3].u >= 0)HAL_GPIO_WritePin(BR_INA_PORT, BR_INA_PIN, GPIO_PIN_SET);
 		else if (Kpid[3].u < 0)HAL_GPIO_WritePin(BR_INB_PORT, BR_INB_PIN, GPIO_PIN_SET);
 	}
 
 	if(htim->Instance == TIM8){
+		t++;
+		if(t%100 == 19){
+			pub();
+		}
 		/*pusher down*/
+		pusher_A.distence();
+		pusher_B.distence();
 		if(pusher_A.d > 0){
 			pusher_A.count++;
 			HAL_GPIO_WritePin(PUSHER_A_IN1_PORT, PUSHER_A_IN1_PIN, GPIO_PIN_SET);
@@ -88,6 +106,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			if(pusher_B.count > pusher_B.d*1000/PUSHER_SPEED){
 				pusher_B.p_state = pusher_B.state;
 				pusher_B.count = 0;
+				if(delay_start_resetFIRST == 1){
+					delay_start_reset = 1;
+					delay_start_resetFIRST = 0;
+					pusher_B.state = 15;
+				}
 			}
 		}
 //		if(pusher_C.d > 0){
@@ -171,7 +194,23 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		if(delay_start_2!=0){
 			delay_2++;
 		}
+		if(delay_start_reset!=0){
+			delay_reset++;
+		}
 
+
+		if(delay_start_reset ==1 && delay_reset > 0){
+			script_pusher(-14,15);
+			delay_start_reset =2;
+		}
+		if(delay_start_reset == 2 && delay_reset == 200){
+			pusher_A.state = 0;
+			pusher_A.p_state = 0;
+			pusher_B.state = 12 ;
+			pusher_B.p_state = 12;
+			delay_start_reset = 0;
+			delay_reset = 0;
+		}
 
 //		if(cmd == 0){
 //			script_wheel(0,0,0);

@@ -32,6 +32,7 @@
 
 #define PUSHER_SPEED 33.6
 
+void pusher_reset();
 
 class PUSHER{
 public:
