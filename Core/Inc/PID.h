@@ -18,7 +18,7 @@ extern "C"
 #define PWM_ARR 999
 #define Dwheel 12.9		//wheelDiameter_cm
 #define width 48		//cm
-#define length 41.5		//cm
+#define car_len 41.5		//cm
 
 typedef struct{
 	double Kp;

@@ -5,17 +5,29 @@
  *      Author: paul3
  */
 #include "pusher.h"
+#include "stm32h7xx_hal.h"
 
 PUSHER pusher_A;
 PUSHER pusher_B;
 //PUSHER pusher_C;
 //PUSHER pusher_D;
 
+
 void script_pusher(double hight_a,double hight_b){
 	pusher_A.state = hight_a;
 	pusher_B.state = hight_b;
 }
 
+void pusher_reset(){
+	script_pusher(-15,15);
+	HAL_Delay(3500);
+	script_pusher(-15,14);
+	HAL_Delay(1000);
+	pusher_A.state = 0;
+	pusher_A.p_state = 0;
+	pusher_B.state = 12;
+	pusher_B.p_state = 12;
+}
 void PUSHER::distence(){
 
 	pusher_A.d = (pusher_A.state - pusher_A.p_state)*10;

@@ -32,7 +32,7 @@
 
 #define PUSHER_SPEED 33.6
 
-
+void pusher_reset();
 class PUSHER{
 public:
 	//PUSHER(int x):state(x){}; //initializer list

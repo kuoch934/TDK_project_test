@@ -11,8 +11,10 @@
 #include "PID.h"
 #include "pusher.h"
 #include "script.h"
+#include "ros_port.h"
+#include "mainpp.h"
 
-double coeffab = 0.5 * (width + length);
+double coeffab = 0.5 * (width + car_len);
 //extern int flag;
 //extern int flaged;
 //extern int scriptrun;
@@ -24,6 +26,7 @@ extern PUSHER pusher_B;
 extern PUSHER pusher_C;
 extern PUSHER pusher_D;
 double corr_vy = (double)100/94;
+int t = 0;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance == TIM1){
@@ -44,9 +47,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 
 
+
+
 		for( int i = 0; i < 4; i ++){
 			pidCtrl(i);
 		}
+
+		rVx= (Kpid[0].insVel+Kpid[1].insVel+Kpid[2].insVel+Kpid[3].insVel)/4;
+		rVy= (Kpid[0].insVel-Kpid[1].insVel+Kpid[2].insVel-Kpid[3].insVel)/4;
+		rW= (-Kpid[0].insVel+Kpid[1].insVel+Kpid[2].insVel-Kpid[3].insVel)/(4*(car_len-width));
 
 		__HAL_TIM_SET_COMPARE(FR_PWM_TIMMER, FR_PWM_CHANNEL, Kpid[0].pulse);
 		__HAL_TIM_SET_COMPARE(FL_PWM_TIMMER, FL_PWM_CHANNEL, Kpid[1].pulse);
@@ -71,7 +80,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	}
 
 	if(htim->Instance == TIM8){
+		t++;
+		if(t%20 == 19){
+			pub();
+		}
 		/*pusher down*/
+		pusher_A.distence();
+		pusher_B.distence();
 		if(pusher_A.d > 0){
 			pusher_A.count++;
 			HAL_GPIO_WritePin(PUSHER_A_IN1_PORT, PUSHER_A_IN1_PIN, GPIO_PIN_SET);

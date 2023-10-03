@@ -12,6 +12,8 @@
 void script();
 void script_wheel(double s_Vx,double s_Vy,double s_W);
 void script_pusher(double hight_a,double hight_b);
+extern int everRun;
+extern int everRun2;
 class SCRIPT{
 public:
 	int scriptrun = 0;

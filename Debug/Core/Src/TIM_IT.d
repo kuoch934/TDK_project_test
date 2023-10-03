@@ -33,7 +33,16 @@ Core/Src/TIM_IT.o: ../Core/Src/TIM_IT.cpp ../Core/Inc/TIM_IT.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../Core/Inc/chassis_DCmotor.h ../Core/Inc/chassis_kinetic_model.h \
  ../Core/Inc/PID.h ../Core/Inc/mainpp.h ../Core/Inc/pusher.h \
- ../Core/Inc/script.h
+ ../Core/Inc/script.h ../Core/Inc/ros_port.h ../Core/Inc/ros.h \
+ ../Core/Inc/ros/node_handle.h ../Core/Inc/std_msgs/Time.h \
+ ../Core/Inc/ros/msg.h ../Core/Inc/ros/time.h ../Core/Inc/ros/duration.h \
+ ../Core/Inc/rosserial_msgs/TopicInfo.h ../Core/Inc/rosserial_msgs/Log.h \
+ ../Core/Inc/rosserial_msgs/RequestParam.h ../Core/Inc/ros/publisher.h \
+ ../Core/Inc/ros/node_handle.h ../Core/Inc/ros/subscriber.h \
+ ../Core/Inc/ros/service_server.h ../Core/Inc/ros/service_client.h \
+ ../Core/Inc/STM32Hardware.h ../Core/Inc/geometry_msgs/Twist.h \
+ ../Core/Inc/geometry_msgs/Vector3.h ../Core/Inc/std_msgs/Int8.h \
+ ../Core/Inc/mainpp.h
 ../Core/Inc/TIM_IT.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -73,3 +82,23 @@ Core/Src/TIM_IT.o: ../Core/Src/TIM_IT.cpp ../Core/Inc/TIM_IT.h \
 ../Core/Inc/mainpp.h:
 ../Core/Inc/pusher.h:
 ../Core/Inc/script.h:
+../Core/Inc/ros_port.h:
+../Core/Inc/ros.h:
+../Core/Inc/ros/node_handle.h:
+../Core/Inc/std_msgs/Time.h:
+../Core/Inc/ros/msg.h:
+../Core/Inc/ros/time.h:
+../Core/Inc/ros/duration.h:
+../Core/Inc/rosserial_msgs/TopicInfo.h:
+../Core/Inc/rosserial_msgs/Log.h:
+../Core/Inc/rosserial_msgs/RequestParam.h:
+../Core/Inc/ros/publisher.h:
+../Core/Inc/ros/node_handle.h:
+../Core/Inc/ros/subscriber.h:
+../Core/Inc/ros/service_server.h:
+../Core/Inc/ros/service_client.h:
+../Core/Inc/STM32Hardware.h:
+../Core/Inc/geometry_msgs/Twist.h:
+../Core/Inc/geometry_msgs/Vector3.h:
+../Core/Inc/std_msgs/Int8.h:
+../Core/Inc/mainpp.h:

@@ -14,7 +14,7 @@
 
 void vel_callback(const geometry_msgs::Twist &msg);
 void ori_callback(const std_msgs::Int8 &msg);
-void interPub(void);
+void pub(void);
 
 void ros_setup(void);
 void ros_loop(void);

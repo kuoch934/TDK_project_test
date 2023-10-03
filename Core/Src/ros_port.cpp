@@ -13,9 +13,6 @@
 
 #include "mainpp.h"
 
-int run_inter0 = 0;
-
-
 
 geometry_msgs::Twist speed;
 
@@ -35,15 +32,11 @@ ros::Publisher pub_vel("/realspeed", &speed);
 ros::Subscriber<std_msgs::Int8> sub_ori("/cmd_ori", ori_callback);
 //ros::Subscriber<std_msgs::Int8> sub_laji("cmd_laji", laji_callback);
 //ros::Publisher pub_laji("laji_ok", &speed);
-void interPub(void){
+void pub(void){
 	speed.linear.x = rVx;
 	speed.linear.y = rVy;
 	speed.angular.z = rW;
-	run_inter0 ++;
-
- if(run_inter0 > 1)
 	pub_vel.publish(&speed);
-
 }
 void ros_setup(void)
 {
@@ -75,13 +68,13 @@ void Error_Handler(void)
 static void MX_USART1_UART_Init(void)
 {
 
-  /* USER CODE BEGIN USART1_Init 0 */
+  /* USER CODE BEGIN USART3_Init 0 */
 
-  /* USER CODE END USART1_Init 0 */
+  /* USER CODE END USART3_Init 0 */
 
-  /* USER CODE BEGIN USART1_Init 1 */
+  /* USER CODE BEGIN USART3_Init 1 */
 
-  /* USER CODE END USART1_Init 1 */
+  /* USER CODE END USART3_Init 1 */
   huart1.Instance = USART1;
   huart1.Init.BaudRate = 57600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
@@ -109,9 +102,9 @@ static void MX_USART1_UART_Init(void)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN USART1_Init 2 */
+  /* USER CODE BEGIN USART3_Init 2 */
 
-  /* USER CODE END USART1_Init 2 */
+  /* USER CODE END USART3_Init 2 */
 
 }
 

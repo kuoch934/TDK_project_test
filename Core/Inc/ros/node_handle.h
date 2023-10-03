@@ -212,7 +212,8 @@ public:
   virtual int spinOnce()
   {
     /* restart if timed out */
-    uint32_t c_time = hardware_.time();
+
+	  uint32_t c_time = hardware_.time();
     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
     {
       configured_ = false;
