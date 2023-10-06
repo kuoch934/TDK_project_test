@@ -22,11 +22,8 @@ int a=0;
 int flag = 0;
 double Vx = 0, Vy = 0, W, rVx, rVy, rW;
 int script_state = 0;
-<<<<<<< HEAD
 int pusher_reset_state = 0;
-=======
 
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 void main_function(){
 	PUSHER pusher_A;
 	PUSHER pusher_B;
@@ -38,10 +35,7 @@ void main_function(){
 	pusher_reset();
 	script_a.scriptrun = 0;
 	script_b.scriptrun = 0;
-<<<<<<< HEAD
 	pusher_reset();
-=======
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 	while(1){
 		a++;
 		ros_loop();
@@ -56,10 +50,7 @@ void main_function(){
 		while(script_a.scriptrun == 1 || script_b.scriptrun == 1){
 			if(everRun == 1 || everRun2 == 1){
 				script_a.scriptrun = 0;
-<<<<<<< HEAD
 				script_b.scriptrun = 0;
-=======
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 			}
 			script();
 		}

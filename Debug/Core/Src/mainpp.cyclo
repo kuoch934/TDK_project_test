@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 ../Core/Inc/pusher.h:37:7:PUSHER::PUSHER()	1
-../Core/Src/mainpp.cpp:26:6:void main_function()	7
-../Core/Src/mainpp.cpp:58:6:void stm_setup()	1
-../Core/Src/mainpp.cpp:65:5:int detectFallingEdge(int)	3
-=======
-../Core/Inc/pusher.h:36:7:PUSHER::PUSHER()	1
-../Core/Src/mainpp.cpp:26:6:void main_function()	7
-../Core/Src/mainpp.cpp:57:6:void stm_setup()	1
-../Core/Src/mainpp.cpp:64:5:int detectFallingEdge(int)	3
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
+../Core/Src/mainpp.cpp:27:6:void main_function()	7
+../Core/Src/mainpp.cpp:60:6:void stm_setup()	1
+../Core/Src/mainpp.cpp:67:5:int detectFallingEdge(int)	3

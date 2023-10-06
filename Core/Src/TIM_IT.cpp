@@ -14,11 +14,8 @@
 #include "ros_port.h"
 #include "mainpp.h"
 
-<<<<<<< HEAD
 #define PI 3.14159265751
 
-=======
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 double coeffab = 0.5 * (width + car_len);
 //extern int flag;
 //extern int flaged;
@@ -28,14 +25,12 @@ double coeffab = 0.5 * (width + car_len);
 //extern int delay_start;
 extern PUSHER pusher_A;
 extern PUSHER pusher_B;
-extern PUSHER pusher_C;
-extern PUSHER pusher_D;
+//extern PUSHER pusher_C;
+//extern PUSHER pusher_D;
 double corr_vy = (double)100/94;
 int t = 0;
-<<<<<<< HEAD
 int delay_start_resetFIRST = 1;
-=======
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
+
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance == TIM1){
@@ -64,11 +59,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 		rVx= (Kpid[0].insVel+Kpid[1].insVel+Kpid[2].insVel+Kpid[3].insVel)/4;
 		rVy= (Kpid[0].insVel-Kpid[1].insVel+Kpid[2].insVel-Kpid[3].insVel)/4;
-<<<<<<< HEAD
 		rW= (-Kpid[0].insVel+Kpid[1].insVel+Kpid[2].insVel-Kpid[3].insVel)/(4*(car_len-width))/(2*PI);
-=======
-		rW= (-Kpid[0].insVel+Kpid[1].insVel+Kpid[2].insVel-Kpid[3].insVel)/(4*(car_len-width));
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 
 		__HAL_TIM_SET_COMPARE(FR_PWM_TIMMER, FR_PWM_CHANNEL, Kpid[0].pulse);
 		__HAL_TIM_SET_COMPARE(FL_PWM_TIMMER, FL_PWM_CHANNEL, Kpid[1].pulse);
@@ -94,11 +85,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 	if(htim->Instance == TIM8){
 		t++;
-<<<<<<< HEAD
 		if(t%100 == 19){
-=======
-		if(t%20 == 19){
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 			pub();
 		}
 		/*pusher down*/

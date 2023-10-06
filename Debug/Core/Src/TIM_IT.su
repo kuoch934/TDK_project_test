@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-../Core/Src/TIM_IT.cpp:34:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	24	static
-=======
-../Core/Src/TIM_IT.cpp:31:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	24	static
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
+../Core/Src/TIM_IT.cpp:35:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	24	static

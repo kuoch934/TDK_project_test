@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-../Core/Src/script.cpp:24:6:void script()	33
-../Core/Src/script.cpp:128:6:void script_wheel(double, double, double)	1
-=======
-../Core/Src/script.cpp:23:6:void script()	33
-../Core/Src/script.cpp:127:6:void script_wheel(double, double, double)	1
->>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
+../Core/Src/script.cpp:24:6:void script()	35
+../Core/Src/script.cpp:134:6:void script_wheel(double, double, double)	1
