@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ../Core/Src/TIM_IT.cpp:34:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	32
+=======
+../Core/Src/TIM_IT.cpp:31:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	26
+>>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29

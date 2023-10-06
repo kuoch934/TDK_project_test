@@ -43,17 +43,29 @@ void script(){
 			delay_start = 4;
 		}
 		if(delay == 1100 && delay_start == 4){
+<<<<<<< HEAD
 			script_wheel(0,0,0);
+=======
+			script_wheel(20,0,0);
+>>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 			script_pusher(-2,13);
 			delay_start = 5;
 		}
 		if(delay == 1200 && delay_start == 5){/*-50*/
 //			script_pusher(-2,10);
+<<<<<<< HEAD
 			script_wheel(15,0,0);
 			delay_start = 6;
 		}
 		if(delay == 1400 && delay_start == 6){/*-50*/
 			script_wheel(0,0,0);
+=======
+			script_wheel(30,0,0);
+			delay_start = 6;
+		}
+		if(delay == 1400 && delay_start == 6){/*-50*/
+			script_wheel(10,0,0);
+>>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 			script_pusher(13,-2);
 			delay_start = 7;
 		}

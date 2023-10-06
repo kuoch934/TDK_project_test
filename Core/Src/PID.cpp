@@ -1,7 +1,7 @@
 # include "PID.h"
 #define PI 3.14159265751
 
-double Kp[] = {0.1, 0.1, 0.1, 0.1};
+double Kp[] = {0.1, 0.05, 0.1, 0.1};
 double Ki[] = {0.5, 0.5, 0.5, 0.5};
 double Kd[] = {0, 0, 0, 0};
 KPID Kpid[4] = {

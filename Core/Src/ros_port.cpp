@@ -37,6 +37,7 @@ void pub(void){
 	speed.linear.x = rVx;
 	speed.linear.y = rVy;
 	speed.angular.z = rW;
+<<<<<<< HEAD
 	if(everRun2 == 1){//already completed flipping board
 		speed.linear.z = 2;
 	}
@@ -46,6 +47,8 @@ void pub(void){
 	else{
 		speed.linear.z = 0;
 	}
+=======
+>>>>>>> e60cc869212c254cf3d56520931e6e217a2ebc29
 	pub_vel.publish(&speed);
 }
 void ros_setup(void)
